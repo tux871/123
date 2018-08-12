@@ -1,0 +1,43 @@
+/*таймер
+ * 			    Timer t = new Timer() {
+			        @Override
+			        public void run() {
+						addRow(pu, table);
+			        }
+			      };
+			      t.scheduleRepeating(1000);*/
+			      
+			      		 //устарело, для получения даты DateTimeFormat dateTimeFormat = DateTimeFormat.getFullDateFormat();
+		 //String s = dateTimeFormat.format(new Date());
+		 
+отправить запрос
+				RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, "https://api.vk.com/method/users.get?user_id=210700286&v=5.52");
+				try {
+					builder.sendRequest(null, new RequestCallback() {
+						
+						@Override
+						public void onResponseReceived(Request request, Response response) {
+							// TODO Auto-generated method stub
+							String a = response.getText();
+							area.setText(a);
+							Window.alert(a);
+						}
+						
+						@Override
+						public void onError(Request request, Throwable exception) {
+							// TODO Auto-generated method stub
+							
+						}
+					});
+				} catch (RequestException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+интернационализация, добавить в gwt.xml
+ <inherits name="com.google.gwt.i18n.I18N"/>
+ <extend-property name="locale" values="ru"/>
+ <set-property name="locale" value="ru" />
+ 
+   <!-- allow Super Dev Mode  <add-linker name="xsiframe"/>
+   -->
